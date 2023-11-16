@@ -1,0 +1,1 @@
+﻿write host "I'm learning Powershell scripting"
