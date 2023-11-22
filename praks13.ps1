@@ -1,0 +1,73 @@
+﻿function mainmenu
+{
+Write-Host "`t`t`tArea Calculator" -foregroundcolor Green
+Write-Host "`n`t`tMain Menu" -ForegroundColor Yellow
+write-host "`nPlease select theoption to üerform respective task`n" -ForegroundColor Yellow
+
+Write-Host "1: Area of square" -ForegroundColor Green
+Write-Host "2: Area of Rectangle" -ForegroundColor Green
+Write-Host "3: Area of Circle" -ForegroundColor Green
+Write-Host "4: Area of Triangle" -ForegroundColor Green
+
+Write-Host "5: Exit`n" -ForegroundColor Green
+$choice = Read-Host "Enter you choice"
+return $choice
+}
+Function checkmenu
+{
+Write-host "`n`nPlease select the next option" -ForegroundColor Yellow
+Write-Host "1: Return to Main menu" -ForegroundColor Green
+Write-Host "2: Exit`n" -ForegroundColor Green
+
+$ch2=Read-Host "Enter your choice"
+if($ch2 -eq "1")
+{ continue }
+if($ch2 -eq "1")
+{exit}
+else
+{
+write-host "`t`tArea of Square`n" -ForegroundColor Green
+[int]$side = Read-Host "Enter the side of the square"
+$area= $side * $side
+Write-Host "`nArea of Square:" $area -ForegroundColor Green
+
+checkmenu
+}
+function circle
+{cls
+Write-host "`t`tArea of Circle`n" -ForegroundColor Green
+[int]$radius = Read-Host "Enter the radius of the circle"
+$area= 3.14 * $radius * $radius
+Write-Host "`nArea of circle:"$area -ForegroundColor Green
+
+checkmenu}
+function triangle
+{cls
+Write-host "`t`tArea of Triangle`n" -Foregroundcolor Green
+[int]$height = Read-Host "Enter height of triangle"
+[int]$base = Read-Host "Enter base of triangle"
+$area = 0.5 * $height * $base
+Write-Host "`nArea of the triangle: " $area -ForegroundColor Green
+
+checkmenu}
+do
+{cls
+$ch1 = mainmenu
+
+switch($ch1)
+{1
+{
+cls
+square
+checkmenu}
+2
+{cls
+rectangle
+checkmenu}
+3
+{cls
+triangle
+checkmenu}
+}
+}
+}while ($ch1 -ne "S")
