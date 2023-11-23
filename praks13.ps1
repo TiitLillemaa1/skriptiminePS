@@ -11,6 +11,10 @@ Write-Host "4: Area of Triangle" -ForegroundColor Green
 
 Write-Host "5: Exit`n" -ForegroundColor Green
 $choice = Read-Host "Enter you choice"
+
+if ($choice -eq "5")
+{exit}
+else {continue}
 return $choice
 }
 Function checkmenu
@@ -22,10 +26,16 @@ Write-Host "2: Exit`n" -ForegroundColor Green
 $ch2=Read-Host "Enter your choice"
 if($ch2 -eq "1")
 { continue }
-if($ch2 -eq "1")
+if($ch2 -eq "2")
 {exit}
 else
 {
+    Write-Host "`nEnter correct option" -ForegroundColor Red
+    Checkmenu
+    }
+}
+Function square
+{cls
 write-host "`t`tArea of Square`n" -ForegroundColor Green
 [int]$side = Read-Host "Enter the side of the square"
 $area= $side * $side
@@ -33,6 +43,16 @@ Write-Host "`nArea of Square:" $area -ForegroundColor Green
 
 checkmenu
 }
+function rectangle
+{
+cls
+write-host "`t`tArea of Rectangle`n" -ForegroundColor Green
+[int]$lenght = Read-Host "Enter lenght of the rectangle"
+[int]$breadth = Read-Host "Enter breadht of the rectangle"
+$area = $lenght * $breadth
+write-host "`nArea of the rectangle : "$area -ForegroundColor Green
+checkmenu
+} 
 function circle
 {cls
 Write-host "`t`tArea of Circle`n" -ForegroundColor Green
@@ -51,23 +71,31 @@ Write-Host "`nArea of the triangle: " $area -ForegroundColor Green
 
 checkmenu}
 do
-{cls
-$ch1 = mainmenu
+{
+    cls
+    $ch1 = mainmenu
 
-switch($ch1)
+    switch($ch1)
 {1
 {
-cls
-square
-checkmenu}
+    cls
+    square
+    checkmenu}
 2
-{cls
-rectangle
-checkmenu}
+{
+    cls
+    rectangle
+    checkmenu}
 3
-{cls
-triangle
-checkmenu}
+{
+    cls
+    circle
+    checkmenu}
+4
+{
+    cls
+    triangle
+    checkmenu
 }
 }
 }while ($ch1 -ne "S")
